@@ -6,15 +6,16 @@ const Hero = () => {
   return (
     <section className="hero">
             {/* Video */}
-           <video
-        className="hero-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+        <video
+  className="hero-video"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
+>
+  <source src={heroVideo} type="video/mp4" />
+</video>
 
       <div className="hero-overlay"></div>
 

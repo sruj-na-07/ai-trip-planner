@@ -50,7 +50,15 @@ const getWeatherInfo = (code) => {
   };
 };
 
-const WeatherCard = ({ coordinates }) => {
+const WeatherCard = ({ coordinates, destinationName }) => {
+  if (!coordinates?.lat || !coordinates?.lon) {
+    return (
+      <section className="weather-card">
+        <p>Weather information is unavailable right now.</p>
+      </section>
+    );
+  }
+
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -106,7 +114,8 @@ const WeatherCard = ({ coordinates }) => {
       <div className="weather-header">
         <div>
           <p className="section-eyebrow">CURRENT CONDITIONS</p>
-          <h3>{label}</h3>
+<h3>{label}</h3>
+<p className="weather-location">{destinationName}</p>
         </div>
 
         <Icon size={42} strokeWidth={1.4} />

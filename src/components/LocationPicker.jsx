@@ -159,7 +159,7 @@ const [location, setLocation] = useState(getSavedLocation);
   };
 
   return (
-    <section className="location-section">
+    <section className="location-section" id="journey">
       <div className="location-content">
         <p className="section-eyebrow">
           PERSONALISE YOUR JOURNEY

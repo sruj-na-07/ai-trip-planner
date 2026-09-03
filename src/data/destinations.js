@@ -1,3 +1,4 @@
+
 export const destinations = [
   {
     id: "kyoto",
@@ -36,8 +37,7 @@ export const destinations = [
     bestTime: "March – May, October – November",
     idealFor: "Culture lovers & slow travellers",
 
-    image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+    image:"https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=85",
 
     coordinates: {
       lat: 35.0116,
@@ -83,7 +83,7 @@ export const destinations = [
     idealFor: "Beach lovers & wellness seekers",
 
     image:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85",
 
     coordinates: {
       lat: -8.3405,
@@ -129,7 +129,7 @@ export const destinations = [
     idealFor: "Nature lovers & adventure seekers",
 
     image:
-      "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85",
 
     coordinates: {
       lat: 64.9631,
@@ -175,7 +175,7 @@ export const destinations = [
     idealFor: "History lovers & cultural explorers",
 
     image:
-      "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=85",
 
     coordinates: {
       lat: 26.9124,
@@ -213,7 +213,7 @@ export const destinations = [
         description:
           "Relax along Kerala's dramatic cliffside coastline and golden beach.",
         image:
-          "https://images.unsplash.com/photo-1602306021377-5a3f3f9f2b4f?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1677216713977-50421d083abf?auto=format&fit=crop&w=900&q=80",
       },
     ],
 
@@ -221,7 +221,7 @@ export const destinations = [
     idealFor: "Slow travellers & nature lovers",
 
     image:
-      "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=85",
 
     coordinates: {
       lat: 10.8505,
@@ -267,7 +267,7 @@ export const destinations = [
     idealFor: "Mountain lovers & scenic travellers",
 
     image:
-      "https://images.unsplash.com/photo-1527668752968-14dc70a27c95?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85",
 
     coordinates: {
       lat: 46.8182,
@@ -275,3 +275,4 @@ export const destinations = [
     },
   },
 ];
+

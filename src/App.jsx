@@ -29,6 +29,24 @@ function Home() {
           setSelectedMood={setSelectedMood}
         />
          <LocationPicker />
+
+         <section className="about-section" id="about">
+  <div className="about-content">
+    <p className="section-eyebrow">ABOUT NOMAD</p>
+
+    <h2>
+      Travel with
+      <span> intention.</span>
+    </h2>
+
+    <p>
+      NOMAD is an AI-powered trip planning experience designed to help
+      you discover meaningful destinations, understand the places worth
+      visiting, check real-time weather, and build a personalised
+      itinerary in one place.
+    </p>
+  </div>
+</section>
       </main>
     </>
   );

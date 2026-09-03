@@ -99,6 +99,11 @@ img {
   color: white;
 }
 
+#explore,
+#journey,
+#about {
+  scroll-margin-top: 90px;
+}
 
 /* ================= HERO ================= */
 
@@ -349,7 +354,7 @@ img {
 
   margin-top: 35px;
 
-  color: #6b6b63;
+  color: #5f5f59;
   font-size: 1.1rem;
   line-height: 1.8;
 }
@@ -463,6 +468,11 @@ img {
 
 .weather-header .section-eyebrow {
   color: rgba(255, 255, 255, 0.55);
+}
+.weather-location {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
 }
 
 .weather-header h3 {
@@ -919,7 +929,7 @@ img {
 
 /* ---------- LOCATION PICKER ---------- */
 
-.location-section {
+/* .location-section {
   padding: 100px 7%;
 }
 
@@ -957,6 +967,26 @@ img {
 
 .day-content h3 {
   font-size: 1.7rem;
+} */
+
+/* ---------- LOCATION PICKER ---------- */
+
+.location-section {
+  padding: 100px 7%;
+}
+
+.location-search-form {
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.location-search-form input {
+  min-width: 0;
+  width: 100%;
+}
+
+.location-search-form button {
+  width: 100%;
 }
 
 }
@@ -996,8 +1026,7 @@ img {
 .mood-intro {
   max-width: 500px;
   margin-top: 28px;
-
-  color: #6b6b63;
+  color: #5f5f59;
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -1058,8 +1087,7 @@ img {
 .mood-content p {
   max-width: 350px;
   margin-top: 12px;
-
-  color: #6b6b63;
+  color: #5f5f59;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -1101,7 +1129,7 @@ img {
 
 .explore-intro {
   max-width: 380px;
-  color: #6b6b63;
+  color: #5f5f59;
   line-height: 1.7;
 }
 
@@ -1272,8 +1300,7 @@ img {
 .destination-tagline {
   max-width: 300px;
   margin-top: 8px;
-
-  color: #6b6b63;
+  color: #5f5f59;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -1312,7 +1339,7 @@ img {
 
 .empty-state p {
   margin-top: 12px;
-  color: #6b6b63;
+  color: #5f5f59;
 }
 
 .empty-state button {
@@ -1773,4 +1800,215 @@ img {
   background: rgba(184, 92, 56, 0.08);
   color: #8c4327;
   font-size: 0.88rem;
+}
+
+/* ================= FAMOUS PLACES ================= */
+
+.famous-places-section {
+  padding: 120px 8%;
+  background: #ffffff;
+}
+
+.famous-places-heading {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 60px;
+}
+
+.famous-places-heading h2 {
+  margin-top: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.2rem, 6vw, 6rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.famous-places-heading h2 span {
+  font-style: italic;
+}
+
+.famous-places-intro {
+  max-width: 380px;
+  color: #5f5f59;
+  line-height: 1.7;
+}
+
+.places-grid {
+  max-width: 1200px;
+  margin: 65px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.place-card {
+  background: #f5f3ee;
+  overflow: hidden;
+}
+
+.place-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.place-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.place-card:hover .place-image {
+  transform: scale(1.05);
+}
+
+.place-number {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 7px 11px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1c1c1a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.place-content {
+  padding: 25px 24px 30px;
+}
+
+.place-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.place-title svg {
+  flex-shrink: 0;
+  color: #c96f4a;
+}
+
+.place-title h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.place-content p {
+  max-width: 95%;
+  margin-top: 12px;
+  color: #5f5f59;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.places-loading {
+  max-width: 1200px;
+  margin: 65px auto 0;
+  padding: 50px;
+  text-align: center;
+  color: #6b6b63;
+  border: 1px dashed #dedbd4;
+}
+
+
+/* ---------- FAMOUS PLACES MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  .famous-places-section {
+    padding: 90px 7%;
+  }
+
+  .famous-places-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .famous-places-heading h2 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .places-grid {
+    grid-template-columns: 1fr;
+    margin-top: 45px;
+  }
+
+  .place-image-wrapper {
+    height: 360px;
+  }
+
+}
+
+/* ================= ABOUT ================= */
+
+.about-section {
+  padding: 120px 8%;
+  background: #1c1c1a;
+  color: #f5f3ee;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-content .section-eyebrow {
+  color: #c96f4a;
+}
+
+.about-content h2 {
+  margin-top: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.about-content h2 span {
+  font-style: italic;
+}
+
+.about-content > p:last-child {
+  max-width: 650px;
+  margin-top: 35px;
+  color: #c8c6bf;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 90px 7%;
+  }
+
+  .about-content h2 {
+    font-size: clamp(3.2rem, 14vw, 5rem);
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #c96f4a;
+  outline-offset: 3px;
+}
+
+.location-search-form input:focus-visible,
+.search-box input:focus-visible,
+.assistant-input input:focus-visible,
+.planner-control select:focus-visible {
+  outline: 2px solid #c96f4a;
+  outline-offset: 2px;
 }

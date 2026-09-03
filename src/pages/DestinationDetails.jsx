@@ -88,7 +88,10 @@ const DestinationDetails = () => {
         </div>
       </section>
 
-      <WeatherCard coordinates={destination.coordinates} />
+     <WeatherCard
+  coordinates={destination.coordinates}
+  destinationName={destination.name}
+/>
 
       {/* HIGHLIGHTS */}
       <FamousPlaces destination={destination} />
