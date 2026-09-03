@@ -14,21 +14,34 @@ export default async function handler(request, response) {
       });
     }
 
+    const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+
+    if (!accessKey) {
+      console.error("UNSPLASH_ACCESS_KEY is missing");
+      return response.status(500).json({
+        error: "Unsplash API key is not configured.",
+      });
+    }
+
     const unsplashResponse = await fetch(
       `https://api.unsplash.com/search/photos?query=${encodeURIComponent(
         query
       )}&per_page=${count}&orientation=landscape`,
       {
         headers: {
-          Authorization: `Client-ID ${process.env.VITE_UNSPLASH_ACCESS_KEY}`,
+          Authorization: `Client-ID ${accessKey}`,
         },
       }
     );
 
     if (!unsplashResponse.ok) {
-      const errorData = await unsplashResponse.json();
+      const errorText = await unsplashResponse.text();
 
-      console.error("Unsplash API error:", errorData);
+      console.error(
+        "Unsplash API error:",
+        unsplashResponse.status,
+        errorText
+      );
 
       return response.status(unsplashResponse.status).json({
         error: "Unable to fetch images from Unsplash.",
