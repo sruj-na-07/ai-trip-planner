@@ -286,7 +286,15 @@ Add your public GitHub repository link here.
 
 ![AI Travel Assistant](screenshots/ai_assistent.png)
 
+![AI Travel Assistant](screenshots/ai_assistent2.png)
+
 ![Generated Itinerary](screenshots/itinerary.png)
+
+![Generated Itinerary](screenshots/itinerary_2.png)
+
+![Generated Itinerary](screenshots/itinerary_3.png)
+
+![Generated Itinerary](screenshots/itinerary_4.png)
 
 ---
 
