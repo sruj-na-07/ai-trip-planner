@@ -1,66 +1,23 @@
 import { useEffect, useState } from "react";
 import { MapPin } from "lucide-react";
-import { searchImages } from "../services/unsplash";
 
 const FamousPlaces = ({ destination }) => {
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
-  const fetchPlaces = async () => {
-    try {
-      setLoading(true);
-      setError(false);
+    setLoading(true);
 
-      const placeData = await Promise.all(
-        destination.highlights.map(async (place, index) => {
-          const placeName =
-            typeof place === "string" ? place : place.name;
+    const placeData = destination.highlights.map((place, index) => ({
+      id: `${destination.id}-${index}`,
+      name: place.name,
+      description: place.description,
+      image: place.image,
+    }));
 
-          const placeDescription =
-            typeof place === "string"
-              ? `Discover one of the memorable experiences in ${destination.name}.`
-              : place.description;
-
-          let image = destination.image;
-
-          try {
-            const results = await searchImages(
-              `${placeName} ${destination.name} ${destination.country}`,
-              1
-            );
-
-            if (results[0]?.urls?.regular) {
-              image = results[0].urls.regular;
-            }
-          } catch (imageError) {
-            console.error(
-              `Unable to fetch image for ${placeName}:`,
-              imageError
-            );
-          }
-
-          return {
-            id: `${destination.id}-${index}`,
-            name: placeName,
-            description: placeDescription,
-            image,
-          };
-        })
-      );
-
-      setPlaces(placeData);
-    } catch (error) {
-      console.error("Unable to fetch place images:", error);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchPlaces();
-}, [destination]);
+    setPlaces(placeData);
+    setLoading(false);
+  }, [destination]);
 
   return (
     <section className="famous-places-section">
@@ -88,31 +45,21 @@ const FamousPlaces = ({ destination }) => {
         </div>
       )}
 
-      {error && !loading && (
-        <p className="places-error">
-          Images are unavailable right now, but these places are still
-          worth exploring.
-        </p>
-      )}
-
       {!loading && (
         <div className="places-grid">
           {places.map((place, index) => (
-            
-            <article
-              className="place-card"
-              key={place.id}
-            >
+            <article className="place-card" key={place.id}>
               <div className="place-image-wrapper">
                 <img
                   src={place.image}
                   alt={place.name}
                   className="place-image"
+                  loading="lazy"
                 />
 
                 <span className="place-number">
-  {String(index + 1).padStart(2, "0")}
-</span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
 
               <div className="place-content">
