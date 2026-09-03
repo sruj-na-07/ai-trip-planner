@@ -8,69 +8,59 @@ const FamousPlaces = ({ destination }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetchPlaces = async () => {
-      try {
-        setLoading(true);
-        setError(false);
+  const fetchPlaces = async () => {
+    try {
+      setLoading(true);
+      setError(false);
 
-        const results = await searchImages(
-          `famous places ${destination.name} ${destination.country}`,
-          3
-        );
+      const placeData = await Promise.all(
+        destination.highlights.map(async (place, index) => {
+          const placeName =
+            typeof place === "string" ? place : place.name;
 
-        const placeData = destination.highlights.map(
-          (place, index) => {
-            // Supports both object and string highlight formats
-            const placeName =
-              typeof place === "string" ? place : place.name;
+          const placeDescription =
+            typeof place === "string"
+              ? `Discover one of the memorable experiences in ${destination.name}.`
+              : place.description;
 
-            const placeDescription =
-              typeof place === "string"
-                ? `Discover one of the memorable experiences in ${destination.name}.`
-                : place.description;
+          let image = destination.image;
 
-            return {
-              id: `${destination.id}-${index}`,
-              name: placeName,
-              description: placeDescription,
-              image: results[index]?.urls?.regular || destination.image,
-            };
+          try {
+            const results = await searchImages(
+              `${placeName} ${destination.name} ${destination.country}`,
+              1
+            );
+
+            if (results[0]?.urls?.regular) {
+              image = results[0].urls.regular;
+            }
+          } catch (imageError) {
+            console.error(
+              `Unable to fetch image for ${placeName}:`,
+              imageError
+            );
           }
-        );
 
-        setPlaces(placeData);
-      } catch (error) {
-        console.error("Unable to fetch place images:", error);
+          return {
+            id: `${destination.id}-${index}`,
+            name: placeName,
+            description: placeDescription,
+            image,
+          };
+        })
+      );
 
-        setError(true);
+      setPlaces(placeData);
+    } catch (error) {
+      console.error("Unable to fetch place images:", error);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        const fallbackPlaces = destination.highlights.map(
-          (place, index) => {
-            const placeName =
-              typeof place === "string" ? place : place.name;
-
-            const placeDescription =
-              typeof place === "string"
-                ? `Discover one of the memorable experiences in ${destination.name}.`
-                : place.description;
-
-            return {
-              id: `${destination.id}-${index}`,
-              name: placeName,
-              description: placeDescription,
-              image: destination.image,
-            };
-          }
-        );
-
-        setPlaces(fallbackPlaces);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPlaces();
-  }, [destination]);
+  fetchPlaces();
+}, [destination]);
 
   return (
     <section className="famous-places-section">
